@@ -16,6 +16,70 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\ФКНК\БД2\DBLab2\UnivDBWebApplication\UnivDBWebApplication
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/CourseAssignments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlQXNzaWdubWVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/CourseAssignments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlQXNzaWdubWVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/CourseAssignments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlQXNzaWdubWVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/CourseAssignments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlQXNzaWdubWVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/CourseAssignments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlQXNzaWdubWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Courses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Courses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Courses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Courses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Courses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Courses/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Departments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Departments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Departments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Departments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Departments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,12 +88,84 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Queries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Queries/Query1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcmllc1xRdWVyeTEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Queries/SearchQ1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcmllc1xTZWFyY2hRMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Students/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Students/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Students/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Students/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Students/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Studyings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZHlpbmdzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Studyings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZHlpbmdzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Studyings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZHlpbmdzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Studyings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZHlpbmdzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Studyings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZHlpbmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Teachers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Teachers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Teachers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Teachers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/Teachers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ФКНК/БД2/DBLab2/UnivDBWebApplication/UnivDBWebApplication/Views/_ViewImports.cshtml]
