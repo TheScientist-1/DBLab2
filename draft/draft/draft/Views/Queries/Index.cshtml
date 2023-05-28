@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .btn-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+</style>
+
+<h1>Queries</h1>
+<h2>Simple queries</h2>
+<div class="btn-column">
+    <a asp-controller="Queries" asp-action="SearchQ1" class="btn btn-primary">Query 1</a>
+    <a asp-controller="Queries" asp-action="SearchQ2" class="btn btn-primary">Query 2</a>
+    <a asp-controller="Queries" asp-action="SearchQ3" class="btn btn-primary">Query 3</a>
+    <a asp-controller="Queries" asp-action="SearchQ4" class="btn btn-primary">Query 4</a>
+    <a asp-controller="Queries" asp-action="SearchQ5" class="btn btn-primary">Query 5</a>
+</div>
+
+<h2>Complex queries</h2>
+<div class="btn-column">
+    <a asp-controller="Queries" asp-action="SearchQ6" class="btn btn-primary">Query 6</a>
+    <a asp-controller="Queries" asp-action="SearchQ7" class="btn btn-primary">Query 7</a>
+    <a asp-controller="Queries" asp-action="SearchQ8" class="btn btn-primary">Query 8</a>
+</div>

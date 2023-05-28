@@ -1,0 +1,77 @@
+﻿@model IEnumerable<draft.Student>
+
+@{
+    ViewData["Title"] = "Query8";
+}
+
+<p>Search Query:</p>
+<p>Знайти студентів, які вивчають принаймні ті ж курси, що і студент з id: {studentId}</p>
+
+<p>Find students who are studying at least the same courses as the student with id: {studentId}</p>
+<p>SQL Query:</p>
+<p>
+    <code>
+        SELECT * <br />
+        FROM Student <br />
+        WHERE NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Studying <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE Studying.StudentId = {studentId} <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;AND NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM Studying AS S <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE S.StudentId = Student.Id <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND S.CourseId = Studying.CourseId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;) <br />
+        );
+    </code>
+</p>
+
+<p>
+    <a asp-controller="Queries" asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Student ID
+                    </th>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Enrollment Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var student in Model)
+            {
+                        <tr>
+                            <td>
+                        @student.Id
+                            </td>
+                            <td>
+                        @student.FirstName
+                            </td>
+                            <td>
+                        @student.LastName
+                            </td>
+                            <td>
+                        @student.EnrollmentDate.ToShortDateString()
+                            </td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No results found.</p>
+}

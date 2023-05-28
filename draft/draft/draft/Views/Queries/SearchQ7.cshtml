@@ -1,0 +1,45 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "SearchQ7";
+}
+
+
+<p>Search Query:</p>
+<p>Знайти студентів, які вивчили принаймні всі курси з кафедри з назвою: {departmentName} </p>
+
+<p>Find students who have studied at least all courses from the department with name: {departmentName}</p>
+<p>SQL Query:</p>
+<p>
+    <code>
+        SELECT * <br />
+        FROM Student <br />
+        WHERE NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Course <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE Course.DepartmentId = ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT DepartmentId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM Department <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE Name = {departmentName} <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;) <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;AND NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM Studying <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE Studying.StudentId = Student.Id <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND Studying.CourseId = Course.CourseId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;) <br />
+        );
+    </code>
+</p>
+
+<form asp-action="Query7" method="get">
+    <div class="form-group">
+        <label for="departmentName">Department Name:</label>
+        <input type="text" class="form-control" id="departmentName" name="departmentName" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>

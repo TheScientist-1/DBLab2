@@ -1,0 +1,33 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "SearchQ4";
+}
+
+
+ <p>Search Query:</p>
+   <p>Знайти всіх викладачів, що працюють на кафедрі з назвою: {x}</p>
+
+ <p>Find all teachers working in the department with the name: {x}</p>
+ <p>SQL Query:</p>
+         <p>
+            <code>
+                SELECT Teacher.* <br />
+                FROM Teacher <br />
+                INNER JOIN Department ON Teacher.DepartmentId = Department.DepartmentId <br />
+                WHERE Department.Name = {x}
+            </code>
+        </p>
+
+<form asp-action="Query4" method="get">
+    <div class="form-group">
+        <label for="departmentName">Department Name:</label>
+        <input type="text" class="form-control" id="departmentName" name="departmentName" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>
+

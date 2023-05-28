@@ -1,0 +1,33 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "SearchQ5";
+}
+
+
+ <p>Search Query:</p>
+   <p>Знайти всіх студентів, які набрали понад 90 балів з предмету: {subject} </p>
+
+ <p>Find all students who scored more than 90 in the subject: {subject}</p>
+ <p>SQL Query:</p>
+        <p>
+            <code>
+                SELECT Student.* <br />
+                FROM Student <br />
+                JOIN Studying ON Student.Id = Studying.StudentId <br />
+                JOIN Course ON Studying.CourseId = Course.CourseId <br />
+                WHERE Course.Title = {subject} AND Studying.Grade > 90
+            </code>
+        </p>
+
+<form asp-action="Query5" method="get">
+    <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" class="form-control" id="subject" name="subject" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>

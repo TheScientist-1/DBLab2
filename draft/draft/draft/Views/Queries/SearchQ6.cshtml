@@ -1,0 +1,41 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = "SearchQ6";
+}
+
+
+<p>Search Query:</p>
+<p>Знайти студентів, які вивчають принаймні ті ж курси, що і студент з id: {studentId}</p>
+
+<p>Find students who are studying at least the same courses as the student with id: {studentId}</p>
+<p>SQL Query:</p>
+<p>
+    <code>
+        SELECT * <br />
+        FROM Student <br />
+        WHERE NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Studying <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE Studying.StudentId = {studentId} <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;AND NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM Studying AS S <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE S.StudentId = Student.Id <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND S.CourseId = Studying.CourseId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;) <br />
+        );
+    </code>
+</p>
+
+<form asp-action="Query6" method="get">
+    <div class="form-group">
+        <label for="studentId">Student ID:</label>
+        <input type="number" class="form-control" id="studentId" name="studentId" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>

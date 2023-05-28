@@ -1,0 +1,35 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "SearchQ1";
+}
+
+ <p>Search Query:</p>
+ <p>Знайти всі курси викладача з прізвищем: {x}</p>
+ <p>Find all courses taught by a teacher with a surname: {x}</p>
+ <p>SQL Query:</p>
+         <p>
+            <code>
+                SELECT *<br />
+                    FROM Course<br />
+                    WHERE EXISTS (<br />
+                        SELECT 1<br />
+                        FROM CourseAssignment<br />
+                        INNER JOIN Teacher ON CourseAssignment.TeacherId = Teacher.Id<br />
+                        WHERE CourseAssignment.CourseId = Course.CourseId<br />
+                        AND Teacher.LastName = '{х}'<br />
+                    )
+            </code>
+        </p>
+
+<form asp-action="Query1" method="get">
+    <div class="form-group">
+        <label for="searchedString">Searched String:</label>
+        <input type="text" class="form-control" id="searchedString" name="searchString" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>

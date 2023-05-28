@@ -1,0 +1,33 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = "SearchQ3";
+}
+
+
+<p>Search Query:</p>
+
+<p>Знайти всіх викладачів, які викладають курси з кредитним номером, більшим, ніж {creditPorder}</p>
+<p>Find all teachers who teach courses with a credit number greater than {creditThreshold}</p>
+<p>SQL Query:</p>
+<p>
+    <code>
+        SELECT DISTINCT Teacher.* <br />
+        FROM Teacher <br />
+        JOIN CourseAssignment ON Teacher.Id = CourseAssignment.TeacherId <br />
+        JOIN Course ON CourseAssignment.CourseId = Course.CourseId <br />
+        WHERE Course.CreditsNumber > {creditThreshold}
+    </code>
+</p>
+
+<form asp-action="Query3" method="get">
+    <div class="form-group">
+        <label for="creditThreshold">Credit Threshold:</label>
+        <input type="number" class="form-control" id="creditThreshold" name="creditThreshold" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>

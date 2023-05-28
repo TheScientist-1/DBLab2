@@ -1,0 +1,64 @@
+﻿@model IEnumerable<draft.Student>
+
+@{
+    ViewData["Title"] = "Query5";
+}
+
+
+ <p>Search Query:</p>
+  <p>Знайти всіх студентів, які набрали понад 90 балів з предмету: {subject} </p>
+
+ <p>Find all students who scored more than 90 in the subject: {subject}</p>
+ <p>SQL Query:</p>
+        <p>
+            <code>
+                SELECT Student.* <br />
+                FROM Student <br />
+                JOIN Studying ON Student.Id = Studying.StudentId <br />
+                JOIN Course ON Studying.CourseId = Course.CourseId <br />
+                WHERE Course.Title = {subject} AND Studying.Grade > 90
+            </code>
+        </p>
+
+<p>
+    <a asp-controller="Queries" asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Enrollment Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var student in Model)
+            {
+                    <tr>
+                        <td>
+                        @student.FirstName
+                        </td>
+                        <td>
+                        @student.LastName
+                        </td>
+                        <td>
+                        @student.EnrollmentDate.ToShortDateString()
+                        </td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No results found.</p>
+}

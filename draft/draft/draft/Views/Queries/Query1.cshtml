@@ -1,0 +1,63 @@
+﻿@model IEnumerable<draft.Course>
+
+@{
+    ViewData["Title"] = "Query1";
+}
+ <p>Search Query:</p>
+ <p>Знайти всі курси викладача з прізвищем: {x}</p>
+ <p>Find all courses taught by a teacher with a surname: {x}</p>
+ <p>SQL Query:</p>
+         <p>
+            <code>
+                SELECT *<br />
+                    FROM Course<br />
+                    WHERE EXISTS (<br />
+                        SELECT 1<br />
+                        FROM CourseAssignment<br />
+                        INNER JOIN Teacher ON CourseAssignment.TeacherId = Teacher.Id<br />
+                        WHERE CourseAssignment.CourseId = Course.CourseId<br />
+                        AND Teacher.LastName = '{х}'<br />
+                    )
+            </code>
+        </p>
+
+<p>
+    <a asp-controller="Queries" asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                    @Html.DisplayNameFor(model => model.CreditsNumber)
+                    </th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                        @Html.DisplayFor(modelItem => item.CreditsNumber)
+                            </td>
+                            
+                           
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No results found.</p>
+}
