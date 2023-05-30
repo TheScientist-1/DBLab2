@@ -1,6 +1,0 @@
-Results for Query: Query1
---------------------------------
-draft.Course
-draft.Course
-draft.Course
-draft.Course

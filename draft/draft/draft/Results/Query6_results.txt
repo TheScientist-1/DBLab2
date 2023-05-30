@@ -1,4 +1,0 @@
-Results for Query: Query6
---------------------------------
-{"Id":4,"LastName":"French","FirstName":"Aiden","EnrollmentDate":"2020-02-22T00:00:00","Studyings":[]}
-{"Id":7,"LastName":"Barnes","FirstName":"Ann","EnrollmentDate":"2022-01-23T00:00:00","Studyings":[]}

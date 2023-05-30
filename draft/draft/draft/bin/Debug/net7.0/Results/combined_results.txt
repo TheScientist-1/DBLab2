@@ -1,0 +1,9 @@
+Results for Query: Query4
+--------------------------------
+draft.Teacher
+draft.Teacher
+Results for Query: Query8
+--------------------------------
+draft.Teacher
+draft.Teacher
+draft.Teacher

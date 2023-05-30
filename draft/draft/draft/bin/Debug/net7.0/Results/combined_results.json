@@ -1,0 +1,34 @@
+{
+  "Query2": [
+    {
+      "Id": 4,
+      "LastName": "French",
+      "FirstName": "Aiden",
+      "EnrollmentDate": "2020-02-22T00:00:00",
+      "Studyings": []
+    },
+    {
+      "Id": 6,
+      "LastName": "Bowman",
+      "FirstName": "Ihor",
+      "EnrollmentDate": "2021-09-14T00:00:00",
+      "Studyings": []
+    },
+    {
+      "Id": 7,
+      "LastName": "Barnes",
+      "FirstName": "Ann",
+      "EnrollmentDate": "2022-01-23T00:00:00",
+      "Studyings": []
+    }
+  ],
+  "Query7": [
+    {
+      "Id": 3,
+      "LastName": "Ivanova",
+      "FirstName": "Inna",
+      "EnrollmentDate": "2222-11-11T00:00:00",
+      "Studyings": []
+    }
+  ]
+}
