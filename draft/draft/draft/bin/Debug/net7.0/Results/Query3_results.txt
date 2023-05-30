@@ -1,0 +1,5 @@
+Results for Query: Query3
+--------------------------------
+draft.Teacher
+draft.Teacher
+draft.Teacher

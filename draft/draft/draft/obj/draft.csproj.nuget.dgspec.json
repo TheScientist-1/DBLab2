@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ФКНК\\draft\\draft\\draft\\draft.csproj": {}
+    "D:\\ФКНК\\БД2\\DBLab2\\draft\\draft\\draft\\draft.csproj": {}
   },
   "projects": {
-    "D:\\ФКНК\\draft\\draft\\draft\\draft.csproj": {
+    "D:\\ФКНК\\БД2\\DBLab2\\draft\\draft\\draft\\draft.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ФКНК\\draft\\draft\\draft\\draft.csproj",
+        "projectUniqueName": "D:\\ФКНК\\БД2\\DBLab2\\draft\\draft\\draft\\draft.csproj",
         "projectName": "draft",
-        "projectPath": "D:\\ФКНК\\draft\\draft\\draft\\draft.csproj",
+        "projectPath": "D:\\ФКНК\\БД2\\DBLab2\\draft\\draft\\draft\\draft.csproj",
         "packagesPath": "C:\\Users\\m\\.nuget\\packages\\",
-        "outputPath": "D:\\ФКНК\\draft\\draft\\draft\\obj\\",
+        "outputPath": "D:\\ФКНК\\БД2\\DBLab2\\draft\\draft\\draft\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,78 +1,76 @@
-﻿@model IEnumerable<draft.Student>
+﻿@model IEnumerable<draft.Teacher>
 
 @{
     ViewData["Title"] = "Query8";
 }
 
 <p>Search Query:</p>
-<p>Знайти студентів, які мають оцінку вище {grade} на всіх курсах, які вони вивчали.</p>
+<p>Знайти вчителів, які викладають тільки курси з кількістю кредитів: {creditNumber}</p>
 
-<p>Find students who have a grade higher than {grade} in all courses they have studied.</p>
+<p>Find teachers who teach only courses with credits number: {creditNumber}</p>
 <p>SQL Query:</p>
 <p>
     <code>
-        SELECT DISTINCT Student.* <br />
-        FROM Student <br />
+        SELECT * <br />
+        FROM Teacher <br />
         WHERE NOT EXISTS ( <br />
         &nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;FROM Studying AS S1 <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;WHERE S1.StudentId = Student.Id <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;AND NOT EXISTS ( <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM Studying AS S2 <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE S2.StudentId = Student.Id <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND S2.CourseId = S1.CourseId <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND S2.Grade > {grade} <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Course <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE Course.CreditsNumber <> @Model <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND Course.CourseId IN ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT CourseAssignment.CourseId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM CourseAssignment <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE CourseAssignment.TeacherId = Teacher.Id <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) <br />
         &nbsp;&nbsp;&nbsp;&nbsp;) <br />
-        );
+        ;
     </code>
 </p>
-
 <p>
     <a asp-controller="Queries" asp-action="Index" class="btn btn-secondary">Back to Index</a>
 </p>
 
 @if (Model != null && Model.Any())
 {
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Student ID
-                        </th>
-                        <th>
-                            First Name
-                        </th>
-                        <th>
-                            Last Name
-                        </th>
-                        <th>
-                            Enrollment Date
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-            @foreach (var student in Model)
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Teacher ID
+                    </th>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Hire Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var teacher in Model)
             {
-                                <tr>
-                                    <td>
-                        @student.Id
-                                    </td>
-                                    <td>
-                        @student.FirstName
-                                    </td>
-                                    <td>
-                        @student.LastName
-                                    </td>
-                                    <td>
-                        @student.EnrollmentDate.ToShortDateString()
-                                    </td>
-                                </tr>
+                        <tr>
+                            <td>
+                        @teacher.Id
+                            </td>
+                            <td>
+                        @teacher.FirstName
+                            </td>
+                            <td>
+                        @teacher.LastName
+                            </td>
+                            <td>
+                        @teacher.HireDate.ToShortDateString()
+                            </td>
+                        </tr>
             }
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 }
 else
 {
-            <p>No results found.</p>
+        <p>No results found.</p>
 }

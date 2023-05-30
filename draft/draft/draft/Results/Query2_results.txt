@@ -1,0 +1,5 @@
+Results for Query: Query2
+--------------------------------
+Student ID: 4, First Name: Aiden, Last Name: French, Enrollment Date: 22.02.2020
+Student ID: 6, First Name: Ihor, Last Name: Bowman, Enrollment Date: 14.09.2021
+Student ID: 7, First Name: Ann, Last Name: Barnes, Enrollment Date: 23.01.2022

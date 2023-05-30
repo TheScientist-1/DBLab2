@@ -7,10 +7,13 @@ namespace draft.Controllers
     public class QueriesController : Controller
     {
         private readonly DbuniversityContext _context;
+        private readonly ResultLogger _resultLogger;
 
-        public QueriesController(DbuniversityContext context)
+
+        public QueriesController(DbuniversityContext context, ResultLogger resultLogger)
         {
             _context = context;
+            _resultLogger = resultLogger;
         }
         public IActionResult Index()
         {
@@ -38,6 +41,8 @@ namespace draft.Controllers
                 .FromSqlInterpolated($"SELECT * FROM Course WHERE EXISTS (SELECT 1 FROM CourseAssignment INNER JOIN Teacher ON CourseAssignment.TeacherId = Teacher.Id WHERE CourseAssignment.CourseId = Course.CourseId AND Teacher.LastName = {searchString})")
                 .ToListAsync();
 
+            _resultLogger.LogResults("Query1", courses);
+
             return View(courses);
         }
 
@@ -61,6 +66,7 @@ namespace draft.Controllers
             JOIN Department ON Course.DepartmentId = Department.DepartmentId
             WHERE Department.Name = {departmentName}")
                 .ToListAsync();
+            _resultLogger.LogResults("Query2", students);
 
             return View("Query2", students);
         }
@@ -82,6 +88,8 @@ namespace draft.Controllers
             JOIN Course ON CourseAssignment.CourseId = Course.CourseId
             WHERE Course.CreditsNumber > {creditThreshold}")
                 .ToListAsync();
+            _resultLogger.LogResults("Query3", teachers);
+
 
             return View("Query3", teachers);
         }
@@ -109,6 +117,8 @@ namespace draft.Controllers
             INNER JOIN Department ON Teacher.DepartmentId = Department.DepartmentId
             WHERE Department.Name = {departmentName}")
         .ToListAsync();
+            _resultLogger.LogResults("Query4", teachers);
+
 
             return View("Query4", teachers);
         }
@@ -131,6 +141,8 @@ namespace draft.Controllers
             JOIN Course ON Studying.CourseId = Course.CourseId
             WHERE Course.Title = {subject} AND Studying.Grade > 90")
                 .ToListAsync();
+            _resultLogger.LogResults("Query5", students);
+
 
             return View("Query5", students);
         }
@@ -166,6 +178,7 @@ namespace draft.Controllers
                 )
             )")
                 .ToListAsync();
+            _resultLogger.LogResults("Query6", students);
 
             return View("Query6", students);
         }
@@ -197,10 +210,10 @@ namespace draft.Controllers
                 )
             )")
                 .ToListAsync();
+            _resultLogger.LogResults("Query7", students);
 
             return View("Query7", students);
         }
-
 
 
 
@@ -209,28 +222,36 @@ namespace draft.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Query8(int grade)
+        public async Task<IActionResult> Query8(int creditNumber)
         {
-            var students = await _context.Students
-        .FromSqlInterpolated($@"
-            SELECT DISTINCT Student.*
-            FROM Student
-            WHERE NOT EXISTS (
+            var teachers = await _context.Teachers
+                .FromSqlInterpolated($@"
+            SELECT Teacher.*
+            FROM Teacher
+            JOIN CourseAssignment ON Teacher.Id = CourseAssignment.TeacherId
+            JOIN Course ON CourseAssignment.CourseId = Course.CourseId
+            WHERE Course.CreditsNumber = {creditNumber}
+            AND NOT EXISTS (
                 SELECT *
-                FROM Studying AS S1
-                WHERE S1.StudentId = Student.Id
-                AND NOT EXISTS (
-                    SELECT *
-                    FROM Studying AS S2
-                    WHERE S2.StudentId = Student.Id
-                    AND S2.CourseId = S1.CourseId
-                    AND S2.Grade > {grade}
-                )
+                FROM Course AS C
+                LEFT JOIN CourseAssignment AS CA ON C.CourseId = CA.CourseId AND CA.TeacherId = Teacher.Id
+                WHERE C.CreditsNumber <> {creditNumber}
+                AND CA.TeacherId IS NOT NULL
             )")
-        .ToListAsync();
+                .ToListAsync();
+            _resultLogger.LogResults("Query8", teachers);
 
-            return View("Query8", students);
+            return View("Query8", teachers);
         }
 
+
+
     }
+
+
+
+
+
+
+
 }

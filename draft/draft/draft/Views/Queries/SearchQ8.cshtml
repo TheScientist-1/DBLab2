@@ -4,35 +4,33 @@
     ViewData["Title"] = "SearchQ8";
 }
 
-
 <p>Search Query:</p>
-<p>Знайти студентів, які мають оцінку вище {grade} на всіх курсах, які вони вивчали.</p>
+<p>Знайти вчителів, які викладають тільки курси з кількістю кредитів: {creditNumber}</p>
 
-<p>Find students who have a grade higher than {grade} in all courses they have studied.</p>
+<p>Find teachers who teach only courses with credits number: {creditNumber}</p>
 <p>SQL Query:</p>
 <p>
     <code>
-        SELECT DISTINCT Student.* <br />
-        FROM Student <br />
+        SELECT * <br />
+        FROM Teacher <br />
         WHERE NOT EXISTS ( <br />
         &nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;FROM Studying AS S1 <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;WHERE S1.StudentId = Student.Id <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;AND NOT EXISTS ( <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM Studying AS S2 <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE S2.StudentId = Student.Id <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND S2.CourseId = S1.CourseId <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND S2.Grade > {grade} <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Course <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE Course.CreditsNumber <> @Model <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND Course.CourseId IN ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT CourseAssignment.CourseId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM CourseAssignment <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE CourseAssignment.TeacherId = Teacher.Id <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) <br />
         &nbsp;&nbsp;&nbsp;&nbsp;) <br />
-        );
+        ;
     </code>
 </p>
 
 <form asp-action="Query8" method="get">
     <div class="form-group">
-        <label for="grade">Grade:</label>
-        <input type="number" class="form-control" id="grade" name="grade" value="@Model" />
+        <label for="creditNumber">Credit Number:</label>
+        <input type="number" class="form-control" id="creditNumber" name="creditNumber" value="@Model" />
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
