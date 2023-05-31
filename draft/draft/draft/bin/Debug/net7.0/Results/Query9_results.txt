@@ -1,5 +1,5 @@
 Results for Query: Query9
 --------------------------------
-draft.DepartmentResult
-draft.DepartmentResult
-draft.DepartmentResult
+Department ID: 1, Name: Computational Mathematics, Start Date: 19.12.1967, Total Credits: 16
+Department ID: 2, Name: Complex Systems Modelling, Start Date: 01.01.1971, Total Credits: 7
+Department ID: 5, Name: Applied Statistics, Start Date: 02.02.1988, Total Credits: 1

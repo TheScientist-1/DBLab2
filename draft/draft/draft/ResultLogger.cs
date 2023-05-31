@@ -71,10 +71,21 @@ public class ResultLogger
                     string formattedDepartment = $"Department ID: {department.DepartmentId}, Name: {department.Name}, Start Date: {department.StartDate.ToShortDateString()}";
                     writer.WriteLine(formattedDepartment);
                 }
+                else if (result is Teacher teacher)
+                {
+                    string formattedTeacher = $"Teacher ID: {teacher.Id}, First Name: {teacher.FirstName}, Last Name: {teacher.LastName}, Department ID: {teacher.DepartmentId}";
+                    writer.WriteLine(formattedTeacher);
+                }
+                else if (result is DepartmentResult departmentResult)
+                {
+                    string formattedDepartmentResult = $"Department ID: {departmentResult.Department.DepartmentId}, Name: {departmentResult.Department.Name}, Start Date: {departmentResult.Department.StartDate.ToShortDateString()}, Total Credits: {departmentResult.TotalCredits}";
+                    writer.WriteLine(formattedDepartmentResult);
+                }
                 else
                 {
                     writer.WriteLine(result.ToString());
                 }
+                
             }
         }
 

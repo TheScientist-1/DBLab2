@@ -33,11 +33,11 @@
   ],
   "Query8": [
     {
-      "Id": 3,
-      "LastName": "Brown",
-      "FirstName": "John",
-      "HireDate": "3222-03-23T00:00:00",
-      "DepartmentId": 1,
+      "Id": 11,
+      "LastName": "Oliver",
+      "FirstName": "Lucas",
+      "HireDate": "1970-02-20T00:00:00",
+      "DepartmentId": 3,
       "CourseAssignments": [],
       "Department": null
     }
