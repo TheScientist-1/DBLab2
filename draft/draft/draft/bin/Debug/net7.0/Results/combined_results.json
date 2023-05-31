@@ -30,5 +30,48 @@
       "EnrollmentDate": "2222-11-11T00:00:00",
       "Studyings": []
     }
+  ],
+  "Query8": [
+    {
+      "Id": 3,
+      "LastName": "Brown",
+      "FirstName": "John",
+      "HireDate": "3222-03-23T00:00:00",
+      "DepartmentId": 1,
+      "CourseAssignments": [],
+      "Department": null
+    }
+  ],
+  "Query9": [
+    {
+      "Department": {
+        "DepartmentId": 1,
+        "Name": "Computational Mathematics",
+        "StartDate": "1967-12-19T00:00:00",
+        "Courses": [],
+        "Teachers": []
+      },
+      "TotalCredits": 16
+    },
+    {
+      "Department": {
+        "DepartmentId": 2,
+        "Name": "Complex Systems Modelling",
+        "StartDate": "1971-01-01T00:00:00",
+        "Courses": [],
+        "Teachers": []
+      },
+      "TotalCredits": 7
+    },
+    {
+      "Department": {
+        "DepartmentId": 5,
+        "Name": "Applied Statistics",
+        "StartDate": "1988-02-02T00:00:00",
+        "Courses": [],
+        "Teachers": []
+      },
+      "TotalCredits": 1
+    }
   ]
 }

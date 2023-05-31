@@ -1,0 +1,11 @@
+[
+  {
+    "Id": 3,
+    "LastName": "Brown",
+    "FirstName": "John",
+    "HireDate": "3222-03-23T00:00:00",
+    "DepartmentId": 1,
+    "CourseAssignments": [],
+    "Department": null
+  }
+]

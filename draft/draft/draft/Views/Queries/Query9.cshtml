@@ -1,0 +1,58 @@
+﻿@model IEnumerable<draft.DepartmentResult>
+
+@{
+    ViewData["Title"] = "Query9";
+}
+
+<p>Search Query:</p>
+<p>Знайти кафедри, де сумарна кількість кредитів по курсах більше: {x}</p>
+
+<p>Find departments with a total credits sum greater than: </p>
+<p>SQL Query:</p>
+<p>
+     <code>
+        SELECT * <br />
+        FROM Department d <br />
+        WHERE NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;SELECT 1 <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Course c <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE c.DepartmentId = d.DepartmentId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;GROUP BY c.DepartmentId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;HAVING SUM(c.CreditsNumber) <= {x} <br />
+        )
+    </code>
+</p>
+
+</p>
+<p>
+    <a asp-controller="Queries" asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Department ID</th>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>Total Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var result in Model)
+            {
+                        <tr>
+                            <td>@result.Department.DepartmentId</td>
+                            <td>@result.Department.Name</td>
+                            <td>@result.Department.StartDate.ToShortDateString()</td>
+                            <td>@result.TotalCredits</td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No results found.</p>
+}

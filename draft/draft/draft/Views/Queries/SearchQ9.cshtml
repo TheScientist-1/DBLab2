@@ -1,0 +1,35 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = "SearchQ9";
+}
+
+<p>Search Query:</p>
+<p>Знайти кафедри, де сумарна кількість кредитів по курсах більше: </p>
+
+<p>Find departments with a total credits sum greater than: </p>
+<p>SQL Query:</p>
+<p>
+     <code>
+        SELECT * <br />
+        FROM Department d <br />
+        WHERE NOT EXISTS ( <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;SELECT 1 <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;FROM Course c <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;WHERE c.DepartmentId = d.DepartmentId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;GROUP BY c.DepartmentId <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;HAVING SUM(c.CreditsNumber) <= {x} <br />
+        )
+    </code>
+</p>
+<form asp-action="Query9" method="get">
+    <div class="form-group">
+        <label for="creditNumber">Credit Number:</label>
+        <input type="number" class="form-control" id="creditNumber" name="creditNumber" value="@Model" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to Index</a>
+</p>

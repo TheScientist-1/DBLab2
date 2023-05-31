@@ -246,6 +246,54 @@ namespace draft.Controllers
 
 
 
+
+
+
+
+        public IActionResult SearchQ9()
+        {
+            return View();
+        }
+
+
+        public async Task<IActionResult> Query9(int creditThreshold)
+        {
+            var departments = await _context.Departments
+                .FromSqlInterpolated($@"
+            SELECT *
+            FROM Department d
+            WHERE NOT EXISTS (
+                SELECT 1
+                FROM Course c
+                WHERE c.DepartmentId = d.DepartmentId
+                GROUP BY c.DepartmentId
+                HAVING SUM(c.CreditsNumber) <= {creditThreshold}
+            )")
+                .ToListAsync();
+
+            var departmentResults = new List<DepartmentResult>();
+            foreach (var department in departments)
+            {
+                var totalCredits = await _context.Courses
+                    .Where(c => c.DepartmentId == department.DepartmentId)
+                    .SumAsync(c => c.CreditsNumber);
+
+                if (totalCredits > creditThreshold)
+                {
+                    departmentResults.Add(new DepartmentResult
+                    {
+                        Department = department,
+                        TotalCredits = totalCredits
+                    });
+                }
+            }
+
+            _resultLogger.LogResults("Query9", departmentResults);
+
+            return View("Query9", departmentResults);
+        }
+
+
     }
 
 

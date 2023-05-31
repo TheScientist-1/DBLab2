@@ -11,18 +11,18 @@
 <p>SQL Query:</p>
 <p>
     <code>
-        SELECT * <br />
-        FROM Teacher <br />
-        WHERE NOT EXISTS ( <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;SELECT * <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;FROM Course <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;WHERE Course.CreditsNumber <> @Model <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND Course.CourseId IN ( <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT CourseAssignment.CourseId <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM CourseAssignment <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE CourseAssignment.TeacherId = Teacher.Id <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;) <br />
+        SELECT Teacher.*<br />
+            FROM Teacher<br />
+            JOIN CourseAssignment ON Teacher.Id = CourseAssignment.TeacherId<br />
+            JOIN Course ON CourseAssignment.CourseId = Course.CourseId<br />
+            WHERE Course.CreditsNumber = {creditNumber}<br />
+            AND NOT EXISTS (<br />
+                SELECT *<br />
+                FROM Course AS C<br />
+                LEFT JOIN CourseAssignment AS CA ON C.CourseId = CA.CourseId AND CA.TeacherId = Teacher.Id<br />
+                WHERE C.CreditsNumber <> {creditNumber}<br />
+                AND CA.TeacherId IS NOT NULL<br />
+            )"<br />
         ;
     </code>
 </p>

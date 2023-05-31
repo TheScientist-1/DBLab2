@@ -1,0 +1,32 @@
+[
+  {
+    "Department": {
+      "DepartmentId": 1,
+      "Name": "Computational Mathematics",
+      "StartDate": "1967-12-19T00:00:00",
+      "Courses": [],
+      "Teachers": []
+    },
+    "TotalCredits": 16
+  },
+  {
+    "Department": {
+      "DepartmentId": 2,
+      "Name": "Complex Systems Modelling",
+      "StartDate": "1971-01-01T00:00:00",
+      "Courses": [],
+      "Teachers": []
+    },
+    "TotalCredits": 7
+  },
+  {
+    "Department": {
+      "DepartmentId": 5,
+      "Name": "Applied Statistics",
+      "StartDate": "1988-02-02T00:00:00",
+      "Courses": [],
+      "Teachers": []
+    },
+    "TotalCredits": 1
+  }
+]
